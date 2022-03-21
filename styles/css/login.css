@@ -1,0 +1,40 @@
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.btn {
+  background-color: #846233;
+  color: #fdfdfd;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.login {
+  padding: 8% 10% 8% 10%;
+  margin: 0 20%;
+  -webkit-box-shadow: 0 10px 15px #342818;
+          box-shadow: 0 10px 15px #342818;
+  background-color: #fdfdfd;
+  border-radius: 1%;
+}
+
+.registration {
+  font-size: 15px;
+  color: #342818;
+  text-align: center;
+  margin: 0;
+}
+/*# sourceMappingURL=login.css.map */

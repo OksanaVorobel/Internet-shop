@@ -1,0 +1,36 @@
+@import 'variables';
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.btn {
+    background-color: $light-brown;
+    color: $white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+.login {
+    padding: 8% 10% 8% 10%;
+    margin: 0 20%;
+    box-shadow: 0 10px 15px $dark;
+    background-color: $white;
+    border-radius: 1%;
+}
+
+.registration {
+  font-size: 15px;
+  color: $dark;
+  text-align: center;
+  margin: 0; 
+}
