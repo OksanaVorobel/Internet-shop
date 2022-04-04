@@ -3,10 +3,13 @@
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 10px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid $light;
     box-sizing: border-box;
+    @include breakpoint (lg) {
+        padding: 8px 15px;
+      }
 }
 .btn {
     background-color: $light-brown;
@@ -16,19 +19,30 @@ input[type=text], input[type=password] {
     border: none;
     cursor: pointer;
     width: 100%;
+    @include breakpoint (xs) {
+    margin: 20px 0 7px 2px;
+    }
 }
 .btn:hover {
     opacity: 0.8;
 }
-.login {
+.reg-form, .login-form {
+    display: block;
     padding: 8% 10% 8% 10%;
     margin: 0 20%;
     box-shadow: 0 10px 15px $dark;
     background-color: $white;
     border-radius: 1%;
+    @include breakpoint (lg) {
+        font-size: 14px;
+        margin: 24vh auto;
+        height: 500px;
+        width: 375px;
+        padding: 20px, 50px, 40px, 40px;
+        }
 }
 
-.registration {
+.another-variant {
   font-size: 15px;
   color: $dark;
   text-align: center;

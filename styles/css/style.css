@@ -3,8 +3,8 @@ body {
 }
 
 .page {
-  padding-top: 100px;
-  padding-bottom: 70px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 @media (max-width: 576px) {
@@ -24,6 +24,11 @@ body {
 
 .page-dark {
   background-color: #342818;
+  padding-bottom: 2;
+}
+
+.page-login {
+  background-color: #E5D5BF;
 }
 
 .wrapper {
@@ -169,6 +174,7 @@ body {
 @media (max-width: 992px) {
   .sale {
     text-align: center;
+    margin: 50px auto 0;
   }
 }
 
@@ -303,6 +309,7 @@ body {
 
 .product-title {
   font-weight: 600;
+  margin-bottom: 0;
 }
 
 .product-price {
@@ -313,6 +320,7 @@ body {
 }
 
 .footer {
+  padding: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

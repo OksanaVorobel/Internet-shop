@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign in</title>
-    <link rel="stylesheet" href="styles/css/login.css"/>
-    <link rel="stylesheet" href="styles/css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/css/login.css">
+    <link rel="stylesheet" href="styles/css/style.css">
 </head>
 <body>
     <div class="page-main">
@@ -26,25 +27,22 @@
        </header>
     </div>
     </div>
-    <div class="page page-main">
+    <div class="page page-login">
         <div class="wrapper">
-        <div class="login">
-            <h2 class="top_title">Sign in</h2>
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                    
+            <form class="login-form">
+               <h2 class="top_title">Sign in</h2>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Emai" name="email" id="email">
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password">
+
                 <button class="btn" type="submit">Log In</button>
-                <div class="registration">
+                <div class="another-variant">
                     <span>No Account?</span>
                     <a href="registration.html">Registration</a>
                 </div>
             </form>
-        </div>
       </div>
-    </div>
     </div>
     <div class="page page-dark">
         <div class="wrapper">

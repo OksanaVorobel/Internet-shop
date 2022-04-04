@@ -1,11 +1,17 @@
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 10px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid #CBB89E;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+  input[type=text], input[type=password] {
+    padding: 8px 15px;
+  }
 }
 
 .btn {
@@ -18,11 +24,18 @@ input[type=text], input[type=password] {
   width: 100%;
 }
 
+@media (max-width: 500px) {
+  .btn {
+    margin: 20px 0 7px 2px;
+  }
+}
+
 .btn:hover {
   opacity: 0.8;
 }
 
-.login {
+.reg-form, .login-form {
+  display: block;
   padding: 8% 10% 8% 10%;
   margin: 0 20%;
   -webkit-box-shadow: 0 10px 15px #342818;
@@ -31,7 +44,17 @@ input[type=text], input[type=password] {
   border-radius: 1%;
 }
 
-.registration {
+@media (max-width: 992px) {
+  .reg-form, .login-form {
+    font-size: 14px;
+    margin: 24vh auto;
+    height: 500px;
+    width: 375px;
+    padding: 20px, 50px, 40px, 40px;
+  }
+}
+
+.another-variant {
   font-size: 15px;
   color: #342818;
   text-align: center;

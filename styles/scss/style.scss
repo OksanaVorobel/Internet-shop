@@ -6,8 +6,8 @@ body {
 }
 
 .page {
-  padding-top: 100px;
-  padding-bottom: 70px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   @include breakpoint (sm) {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -20,6 +20,10 @@ body {
   }
   &-dark {
     background-color: $dark;
+    padding-bottom: 2;
+  }
+  &-login {
+    background-color: $main;
   }
 }
 .wrapper {
@@ -118,6 +122,7 @@ body {
 .sale {
   @include breakpoint (lg) {
     text-align: center;
+    margin: 50px auto 0;
   }
 }
 .sale-description {
@@ -166,7 +171,7 @@ body {
 .box-price-new {
   font-weight: 700;
   font-size: 42px;
-  color: #846233;
+  color: $light-brown;
   margin-top: 17px;
   @include breakpoint (sm) {
     font-size: 22px;
@@ -204,6 +209,7 @@ body {
 }
 .product-title {
   font-weight: 600;
+  margin-bottom: 0;
 }
 .product-price {
   font-weight: 700;
@@ -213,6 +219,7 @@ body {
 }
 
 .footer {
+  padding: 0px;
   display:flex;
   justify-content: space-between;
   @include breakpoint (lg) {
