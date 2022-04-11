@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles/css/login.css">
@@ -32,9 +33,9 @@
             <form class="login-form">
                <h2 class="top_title">Sign in</h2>
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Emai" name="email" id="email">
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" id="password">
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
                 <button class="btn" type="submit">Log In</button>
                 <div class="another-variant">
@@ -71,5 +72,6 @@
             </footer>
         </div>
     </div>
+    <script type="module" src="scripts/login.js"></script>
 </body>
 </html>

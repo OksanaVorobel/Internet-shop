@@ -1,2 +1,2 @@
 # Internet-shop
-Static pages layout. Adaptive/Responsible Design. SASS. GitHub Pages.
+Client-server interaction in scope of SPA.

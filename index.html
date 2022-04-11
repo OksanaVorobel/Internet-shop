@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlineShop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles/css/style.css">
@@ -18,8 +19,10 @@
         <h2 class="top_title"><a class="nav-link"  href="index.html">Your OnlineShop</a></h2>
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="">Shopping cart</a></li>
-                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="registration.html">Register</a></li>
+                <li class="nav-item" id="login-btn"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item" id="logout-btn"><a class="nav-link" href="">Logout</a></li>
+                <li class="nav-item" id="profile-btn"><a class="nav-link" href="">Profile</a></li>
+                <li class="nav-item" id="reg-btn"><a class="nav-link" href="registration.html">Register</a></li>
             </ul>
            </header>
         </div>
@@ -100,5 +103,6 @@
                 </footer>
             </div>
         </div>
+        <script type="module" src="scripts/logout.js"></script>
     </body>
 </html>
