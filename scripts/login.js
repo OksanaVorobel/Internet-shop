@@ -34,7 +34,7 @@ document.querySelector('.btn').onclick = function (event) {
             alert('Wrong password');
         }
         if (error === 404) {
-            alert(cookie.getAuthToken());
+            alert('Wrong user password or email');
         }
     });
 }
