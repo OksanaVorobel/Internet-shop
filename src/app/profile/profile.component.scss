@@ -1,0 +1,49 @@
+@import '../../style/_variables.scss';
+
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid $light;
+    box-sizing: border-box;
+    @include breakpoint (lg) {
+        padding: 8px 15px;
+      }
+}
+.btn {
+    background-color: $light-brown;
+    color: $white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    @include breakpoint (xs) {
+    margin: 20px 0 7px 2px;
+    }
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+.profile-data{
+    display: block;
+    padding: 8% 10% 8% 10%;
+    margin: 0 20%;
+    box-shadow: 0 10px 15px $dark;
+    background-color: $white;
+    border-radius: 1%;
+    @include breakpoint (lg) {
+        font-size: 14px;
+        margin: 24vh auto;
+        height: 500px;
+        width: 375px;
+        padding: 20px, 50px, 40px, 40px;
+        }
+}
+
+.personal-data{
+    border: 1px solid $dark;
+    padding: 9px 10px;
+}

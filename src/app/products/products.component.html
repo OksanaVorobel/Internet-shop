@@ -1,0 +1,16 @@
+<h2 class="title-h2">Products</h2>
+<main class="page page-light">
+  <div class="wrapper">
+    <div class="product">
+      <div *ngFor="let product of products" class="product-item">
+        <img src="{{product.img}}" alt="{{product.name}}" />
+        <p class="product-title">{{product.name}}</p>
+        <p class="product-price">{{product.price}} UAN</p>
+        <p class="product-title">category: {{product.category}}</p>
+        <p class="product-title">quantity: {{product.quantity}}</p>
+        <a class="button-item">Buy</a>
+      </div>
+    </div>
+  </div>
+</main>
+      

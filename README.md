@@ -1,2 +1,7 @@
-# Internet-shop
-Client-server interaction in scope of SPA.
+# InternetShop
+
+Basic single page application with user management
+
+
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

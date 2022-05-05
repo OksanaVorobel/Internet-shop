@@ -1,0 +1,19 @@
+<div class="page-main">
+    <div class="wrapper">
+        <header class="header">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="">Laptops</a></li>
+            <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="">Smartphones</a></li>
+            <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="">Household appliances</a></li>
+        </ul>
+    <h2 class="top_title"><a class="nav-link"  routerLink="/">Your OnlineShop</a></h2>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="">Shopping cart</a></li>
+            <li *ngIf="!authenticated" class="nav-item" ><a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a></li>
+            <li *ngIf="authenticated" class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+            <li *ngIf="authenticated" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/profile" >Profile</a></li>
+            <li *ngIf="!authenticated" class="nav-item" ><a class="nav-link" routerLinkActive="active" routerLink="/registration">Registration</a></li>
+        </ul>
+       </header>
+    </div>
+</div>

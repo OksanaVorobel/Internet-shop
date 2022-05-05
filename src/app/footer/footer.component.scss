@@ -1,0 +1,43 @@
+@import '../../style/_variables.scss';
+
+.footer {
+    padding: 0px;
+    display:flex;
+    justify-content: space-between;
+    @include breakpoint (lg) {
+      flex-wrap: wrap;
+    }
+}
+.footer-nav {
+    flex: 0 0 60%;
+    display: flex;
+    justify-content: space-between;
+    color: $main;
+    @include breakpoint (lg) {
+      flex: 0 0 100%;
+    }
+    @include breakpoint (sm) {
+      flex-wrap: wrap;
+    }
+}
+.footer-list {
+    list-style-type: none;
+    padding-left: 0;
+    @include breakpoint (sm) {
+      flex: 0 0 49%;
+      margin-bottom: 20px;
+    }
+}
+.footer-list-title {
+    font-size: 12px;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+.footer-list-item {
+    margin-bottom: 10px;
+}
+.footer-list-link {
+    color:$light;
+    text-decoration: none;
+    font-size: 14px;
+}
