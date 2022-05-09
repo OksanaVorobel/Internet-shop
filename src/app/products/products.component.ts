@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {CookieService} from "../services/cookie.service";
 
@@ -17,7 +17,6 @@ export class ProductsComponent implements OnInit {
     category: string,
     quantity: string,
     price: string,
-    description:string, 
     image: string}={} as any;
 
   products:[{
@@ -26,13 +25,11 @@ export class ProductsComponent implements OnInit {
     category: string,
     quantity: string,
     price: string,
-    description:string, 
     img: string
   }] = [] as any;
 
   constructor(
     private http: HttpClient,
-    private cookie: CookieService
   ) { }
 
   ngOnInit(): void {
@@ -42,14 +39,12 @@ export class ProductsComponent implements OnInit {
       category: string,
       quantity: string,
       price: string,
-      description:string, 
       img: string
     }]>
     (this.API + "/products").subscribe({
       next: (data) => {
         data.forEach((product)=>{
           this.products.push(product);
-
         })
       }
     })

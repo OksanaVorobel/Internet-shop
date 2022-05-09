@@ -4,6 +4,7 @@ import {CookieService} from "../services/cookie.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {AuthorizationService} from "../services/authorization.service";
 
 export interface Profile {
   user: {
@@ -21,9 +22,9 @@ export interface Profile {
 export class ProfileComponent implements OnInit {
   profile: Profile | undefined = undefined;
 
-  API: string = 'http://127.0.0.1:5000';
+  private API: string = 'http://127.0.0.1:5000';
   private authToken: string = '';
-  isEditable: boolean = false;
+  Edit: boolean = false;
 
   form = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -32,6 +33,7 @@ export class ProfileComponent implements OnInit {
   })
 
   constructor(
+    private auth: AuthorizationService,
     private cookie: CookieService,
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -39,8 +41,8 @@ export class ProfileComponent implements OnInit {
   ) {
   }
 
-  changeEditableState(): void {
-    this.isEditable = !this.isEditable;
+  changeEdit(): void {
+    this.Edit = !this.Edit;
   }
 
   ngOnInit(): void {
@@ -77,12 +79,27 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  logout(): void {
+    this.auth.logout().subscribe({
+      next: () => {
+        this.cookie.clearCookie('access_token');
+        this.cookie.clearCookie('user');
+        Emitters.authEmitter.emit(false);
+        this.router.navigate(['/']);
+      },
+      
+    })
+  }
+
+/*
   delete_user(): void {
     this.authToken = this.cookie.getAuthToken();
+    ///
     this.cookie.clearCookie('access_token');
         this.cookie.clearCookie('user');
         Emitters.authEmitter.emit(false);
         this.router.navigate(['/']);
+    ///    
     this.http.delete(this.API + '/users/delete', {
       headers: { "Authorization": "Bearer " + this.authToken}
     }).subscribe({
@@ -99,5 +116,5 @@ export class ProfileComponent implements OnInit {
       })
     });
   }
-
+*/
 }

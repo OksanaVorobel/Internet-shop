@@ -1,0 +1,15 @@
+<h2 class="title-h2">Your orders</h2>
+<main class="page page-light">
+  <div class="wrapper">
+    <div class="order">
+      <div *ngFor="let order of orders" class="order-item">
+        <img src="{{order.img}}" alt="{{order.product_name}}" />
+        <p class="order-title">{{order.product_name}}</p>
+        <p class="order-title">quantity: {{order.quantity}}</p>
+        <p class="order-title">status: {{order.status}}</p>
+        <p class="order-price">{{order.price}} UAN</p>
+        <button class="button-item">Show More</button>
+      </div>
+    </div>
+  </div>
+</main>

@@ -46,19 +46,4 @@ export class NavigationComponent implements OnInit {
   }
 
 
-  logout(): void {
-    this.cookie.clearCookie('access_token');
-        this.cookie.clearCookie('user');
-        Emitters.authEmitter.emit(false);
-        
-    this.auth.logout().subscribe({
-      next: () => {
-        this.cookie.clearCookie('access_token');
-        this.cookie.clearCookie('user');
-        Emitters.authEmitter.emit(false);
-        this.router.navigate(['/']);
-      },
-      
-    })
-  }
 }

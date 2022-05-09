@@ -23,11 +23,10 @@ input[type=text], input[type=email], input[type=password] {
     margin: 20px 0 7px 2px;
     }
 }
-
 .btn:hover {
     opacity: 0.8;
 }
-.profile-data{
+.form {
     display: block;
     padding: 8% 10% 8% 10%;
     margin: 0 20%;
@@ -42,12 +41,6 @@ input[type=text], input[type=email], input[type=password] {
         padding: 20px, 50px, 40px, 40px;
         }
 }
-
-.personal-data{
-    border: 1px solid $dark;
-    padding: 9px 10px;
-}
-
 .title-h2 {
     text-align: center;
     font-size: 36px;

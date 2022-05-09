@@ -10,7 +10,7 @@
         <ul class="nav">
             <li class="nav-item"><a class="nav-link" href="">Shopping cart</a></li>
             <li *ngIf="!authenticated" class="nav-item" ><a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a></li>
-            <li *ngIf="authenticated" class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+            <li *ngIf="authenticated" class="nav-item" ><a class="nav-link" routerLinkActive="active" routerLink="/orders">My orders</a></li>
             <li *ngIf="authenticated" class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/profile" >Profile</a></li>
             <li *ngIf="!authenticated" class="nav-item" ><a class="nav-link" routerLinkActive="active" routerLink="/registration">Registration</a></li>
         </ul>

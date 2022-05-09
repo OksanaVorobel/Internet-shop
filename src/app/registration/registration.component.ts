@@ -1,6 +1,5 @@
 import {Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
 import {CookieService} from "../services/cookie.service";
 import {Router} from "@angular/router";
 import {AuthorizationService} from "../services/authorization.service";
@@ -19,10 +18,9 @@ export class RegistrationComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(5)]),
     confirm_password:new FormControl('',[Validators.required])
   })
-  passwordNotEqual = false
+  passwords_not_match= false
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private cookie: CookieService,
     private auth: AuthorizationService
@@ -35,16 +33,17 @@ export class RegistrationComponent implements OnInit {
   submit() {
     let data = this.form.value;
     if(data['password']!==data['confirm_password']){
-        this.passwordNotEqual = true;
-        setTimeout(()=>{this.passwordNotEqual = false;},5000);
+        this.passwords_not_match = true;
+        setTimeout(()=>{this.passwords_not_match = false;},5000);
         alert('Passwords do not match');
         return
     }
     delete data['confirm_password'];
+    
     this.auth.registration(data).subscribe((data) => {
-        this.cookie.setCookie('access_token', data['access_token'], 60);
-        this.cookie.setCookie('self', JSON.stringify(data['user']), 60);
-        this.router.navigate(['/']);
+    this.cookie.setCookie('access_token', data['access_token'], 60);
+    this.cookie.setCookie('self', JSON.stringify(data['user']), 60);
+    this.router.navigate(['/']);
       }, (error) => {
           if (error.status === 403) {
             alert('User with this email or username already registered');

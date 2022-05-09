@@ -1,24 +1,25 @@
 <main class="page page-login">
   <div class="wrapper">
   <form  [formGroup]="form" (submit)="submit()" class="profile-data" *ngIf="profile">
-    <h2 class="top_title">Your Profile</h2>
+    <h2 class="title-h2">Your Profile</h2>
 
     <label for="first_name"><b>First Name</b></label>
-    <p *ngIf="!isEditable" class="personal-data"> {{profile.user.first_name}}</p >
-    <input *ngIf="isEditable" formControlName="first_name" type="text" name="first_name" id="first_name" placeholder="{{profile.user.first_name}}">
+    <p *ngIf="!Edit" class="personal-data"> {{profile.user.first_name}}</p >
+    <input *ngIf="Edit" formControlName="first_name" type="text" name="first_name" id="first_name" placeholder="{{profile.user.first_name}}">
 
     <label for="last_name"><b>Last Name</b></label>
-    <p *ngIf="!isEditable" class="personal-data"> {{profile.user.last_name}}</p >
-    <input *ngIf="isEditable" formControlName="last_name" type="text" name="last_name" id="last_name" placeholder="{{profile.user.last_name}}">
+    <p *ngIf="!Edit" class="personal-data"> {{profile.user.last_name}}</p >
+    <input *ngIf="Edit" formControlName="last_name" type="text" name="last_name" id="last_name" placeholder="{{profile.user.last_name}}">
         
     <label for="email"><b>Email</b></label>
-    <p *ngIf="!isEditable" class="personal-data"> {{profile.user.email}}</p >
-    <input *ngIf="isEditable" formControlName="email" type="text" name="email" id="email" placeholder="{{profile.user.email}}">
+    <p *ngIf="!Edit" class="personal-data"> {{profile.user.email}}</p >
+    <input *ngIf="Edit" formControlName="email" type="text" name="email" id="email" placeholder="{{profile.user.email}}">
 
-    <button *ngIf="!isEditable"class="btn"(click)="changeEditableState()" >Edit</button>
-    <button *ngIf="!isEditable"class="btn"(click)="delete_user()" >Delete</button>
-    <button *ngIf="isEditable" class="btn" type="submit">Apply</button>
-    <button *ngIf="isEditable" class="btn" (click)="changeEditableState()">Cancel</button>
+    <button *ngIf="!Edit"class="btn"(click)="changeEdit()" >Edit</button>
+    <!--<button *ngIf="!Edit"class="btn"(click)="delete_user()" >Delete</button>-->
+    <button *ngIf="!Edit"class="btn"(click)="logout()" >Logout</button>
+    <button *ngIf="Edit" class="btn" type="submit">Apply</button>
+    <button *ngIf="Edit" class="btn" (click)="changeEdit()">Cancel</button>
 </form>
 </div>
 </main>
