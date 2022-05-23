@@ -1,0 +1,18 @@
+<main class="page page-main">
+    <div class="wrapper">
+        <form class="form" [formGroup]="form" (submit)="submit()">
+            <h2 class="title-h2">Making an order</h2>
+            <h2 class="top_title">About product</h2>
+            <label for="quantity"><b>Quantity of product</b></label>
+            <input formControlName="quantity" type="text" placeholder="Enter the quantity of product" name="quantity" id="quantity" required>
+            <h2 class="top_title">Delivery address</h2>
+            <label for="city"><b>City</b></label>
+            <input formControlName="city" type="text" placeholder="Enter the city" name="city" id="city" required>
+            <label for="address"><b>Address</b></label>
+            <input formControlName="address" type="text" placeholder="Enter address" name="address" id="address" required>
+            
+
+            <button class="btn" type="submit">Order</button>
+        </form>
+    </div>
+</main>

@@ -1,0 +1,23 @@
+<main class="page page-main">
+    <div class="wrapper">
+        <form class="reg-form" [formGroup]="form" (submit)="submit()">
+            <h2 class="top_title">Registration</h2>
+            <label for="first_name"><b>First Name</b></label>
+            <input formControlName="first_name" type="text" placeholder="Enter First Name" name="first_name" id="first_name" required>
+            <label for="last_name"><b>Last Name</b></label>
+            <input formControlName="last_name" type="text" placeholder="Enter Last Name" name="last_name" id="last_name" required>
+            <label for="email"><b>Email</b></label>
+            <input formControlName="email" type="email" placeholder="Enter Email" name="email" id="email" required>
+            <label for="password"><b>Password</b></label>
+            <input formControlName="password" type="password" placeholder="Enter Password" name="password" id="password" required>
+            <label for="confirm-password"><b>Repeat password</b></label>
+            <input formControlName="confirm_password" type="password" placeholder="Repeat Password" name="confirm-password" id="confirm-password" required>
+                
+            <button class="btn" type="submit">Register</button>
+            <div class="another-variant">
+                <span>Have an Account?</span>
+                <a routerLinkActive="active" routerLink="/login">Sign up</a>
+            </div>
+        </form>
+    </div>
+</main>

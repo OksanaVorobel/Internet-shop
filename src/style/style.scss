@@ -1,0 +1,33 @@
+@import 'variables';
+
+
+body {
+   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif; 
+}
+.page {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @include breakpoint (sm) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  &-main {
+    background-color: $main;
+  }
+  &-light {
+    background-color: $white;
+  }
+  &-dark {
+    background-color: $dark;
+    padding-bottom: 2%;
+  }
+  &-login {
+    background-color: $main;
+  }
+}
+.wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}

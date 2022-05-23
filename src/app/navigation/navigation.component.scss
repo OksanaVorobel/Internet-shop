@@ -1,0 +1,57 @@
+@import '../../style/_variables.scss';
+
+.header {
+  padding-top: 50px;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.top_title {
+  font-size: 47px;
+  color: $dark;
+  margin: 0; 
+  @include breakpoint (lg) {
+    text-align: center;
+    font-size: 28px;
+  }
+  @include breakpoint (xs) {
+    font-size: 20px;
+  }
+}
+.title-h2 {
+  text-align: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: $dark;
+  @include breakpoint (xs) {
+    font-size: 28px;
+  }
+}
+.nav {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  @include breakpoint (lg) {
+    text-align: center;
+    font-size: 16px;
+    flex-wrap: wrap;
+    margin-left: 2px;
+  }
+  @include breakpoint (xs) {
+    font-size: 12px;
+  }
+}
+.nav-link {
+  text-decoration: none;
+  color: $dark;
+}
+.nav-item {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.nav-item .nav-link:hover {
+    color: $light;
+    background: $light-brown; 
+}
