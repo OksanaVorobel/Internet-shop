@@ -21,6 +21,7 @@ export interface Profile {
 })
 export class ProfileComponent implements OnInit {
   profile: Profile | undefined = undefined;
+  errorMessage: string = '';
 
   private API: string = 'http://127.0.0.1:5000';
   private authToken: string = '';
@@ -35,7 +36,6 @@ export class ProfileComponent implements OnInit {
   constructor(
     private auth: AuthorizationService,
     private cookie: CookieService,
-    private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router
   ) {
@@ -65,29 +65,20 @@ export class ProfileComponent implements OnInit {
         this.cookie.setCookie('user',JSON.stringify(this.profile), 60);
         this.router.navigate(['/']);
       },
-      error: (err => {
-        if(err.status === 400){
-          alert('Bad request');
-        }
-        if(err.status === 405){
-          alert('User with such email already exists');
-        }
-        if(err.status === 409){
-          alert('Fill in all fields');
-        }
-      })
+      error: (errorResponse) => {
+        this.errorMessage = errorResponse.error.message
+      }
     });
   }
 
   logout(): void {
     this.auth.logout().subscribe({
       next: () => {
-        this.cookie.clearCookie('access_token');
-        this.cookie.clearCookie('user');
-        Emitters.authEmitter.emit(false);
-        this.router.navigate(['/']);
+    this.cookie.clearCookie('access_token');
+    this.cookie.clearCookie('user');
+    Emitters.authEmitter.emit(false);
+    this.router.navigate(['/']);
       },
-      
     })
   }
 
@@ -117,4 +108,5 @@ export class ProfileComponent implements OnInit {
     });
   }
 */
+
 }

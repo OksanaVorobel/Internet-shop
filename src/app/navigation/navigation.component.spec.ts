@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationComponent } from './navigation.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -8,7 +11,8 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationComponent ]
+      declarations: [ NavigationComponent ],
+      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule],
     })
     .compileComponents();
   });
@@ -22,4 +26,5 @@ describe('NavigationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

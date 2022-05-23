@@ -10,6 +10,7 @@ import {AuthorizationService} from "../services/authorization.service";
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  errorMessage: string = '';
 
     form = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -44,9 +45,10 @@ export class RegistrationComponent implements OnInit {
     this.cookie.setCookie('access_token', data['access_token'], 60);
     this.cookie.setCookie('self', JSON.stringify(data['user']), 60);
     this.router.navigate(['/']);
-      }, (error) => {
+      }, 
+      (error) => {
           if (error.status === 403) {
-            alert('User with this email or username already registered');
+            alert('User with this email already registered');
           }
           if (error.status === 400) {
             alert('Wrong data');

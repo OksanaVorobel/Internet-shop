@@ -17,8 +17,7 @@ export class AuthorizationService {
         id: number,
         email: string,
         first_name: string,
-        last_name: string,
-        permissions: string
+        last_name: string
       }
     }>(this.Url + '/users/login', loginData);
   }
