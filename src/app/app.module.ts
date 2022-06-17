@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { MakeOrderComponent } from './make-order/make-order.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MakeOrderComponent } from './make-order/make-order.component';
     ProfileComponent,
     ProductsComponent,
     OrdersComponent,
-    MakeOrderComponent
+    MakeOrderComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

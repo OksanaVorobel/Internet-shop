@@ -2,6 +2,17 @@ import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {CookieService} from "../services/cookie.service";
 
+
+class Order {
+  id!: number;
+    status!: string;
+    quantity!: string;
+    product_name!: string;
+    price!: string;
+    img!: string;
+  }
+
+
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -11,13 +22,7 @@ export class OrdersComponent implements OnInit {
   private API: string = 'http://127.0.0.1:5000';
   private authToken: string = '';
 
-  orderForDisplay:{
-    id: number,
-    status: string,
-    quantity: string,
-    product_name: string,
-    price: string,
-    img: string}={} as any;
+  order_for_display!: Order;
 
   orders:[{
     id: number,
@@ -47,8 +52,8 @@ export class OrdersComponent implements OnInit {
       headers: { "Authorization": "Bearer " + this.authToken}
     }).subscribe({
       next: (data) => {
-        data.forEach((order)=>{
-          this.orders.push(order);
+        data.forEach((order_for_display)=>{
+          this.orders.push(order_for_display);
         })
       }
     })

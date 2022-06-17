@@ -39,8 +39,4 @@ export class AuthorizationService {
       }
     }>(this.Url + '/users/registration', registrationData)
   }
-
-  logout(){
-    return this.http.post(this.Url + '/users/logout', {});
-  }
 }

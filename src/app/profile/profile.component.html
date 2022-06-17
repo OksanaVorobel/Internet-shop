@@ -1,6 +1,7 @@
 <main class="page page-login">
   <div class="wrapper">
-  <form  [formGroup]="form" (submit)="submit()" class="profile-data" *ngIf="profile">
+    <div class class="profile-data">
+  <form  [formGroup]="form" (submit)="submit()" *ngIf="profile">
     <h2 class="title-h2">Your Profile</h2>
 
     <label for="first_name"><b>First Name</b></label>
@@ -15,11 +16,12 @@
     <p *ngIf="!Edit" class="personal-data"> {{profile.user.email}}</p >
     <input *ngIf="Edit" formControlName="email" type="text" name="email" id="email" placeholder="{{profile.user.email}}">
 
+  </form>
     <button *ngIf="!Edit"class="btn"(click)="changeEdit()" >Edit</button>
     <!--<button *ngIf="!Edit"class="btn"(click)="delete_user()" >Delete</button>-->
-    <button *ngIf="!Edit"class="btn"(click)="logout()" >Logout</button>
-    <button *ngIf="Edit" class="btn" type="submit">Apply</button>
+    <button *ngIf="!Edit" class="btn"(click)="logout()" >Logout</button>
+    <button *ngIf="Edit" class="btn" (click)="submit()">Apply</button>
     <button *ngIf="Edit" class="btn" (click)="changeEdit()">Cancel</button>
-</form>
+</div>
 </div>
 </main>

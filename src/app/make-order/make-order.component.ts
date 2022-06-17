@@ -1,9 +1,9 @@
 import {Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {CookieService} from "../services/cookie.service";
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 
 @Component({
@@ -14,14 +14,12 @@ import {ActivatedRoute} from "@angular/router";
 export class MakeOrderComponent implements OnInit {
   private API: string = 'http://127.0.0.1:5000';
   private authToken: string = '';
+  errorMessage: string = '';
 
-  form = new FormGroup({
-    quantity:new FormControl('',[Validators.required, Validators.minLength(1)]),
-    city:new FormControl('',[Validators.required, Validators.minLength(1)]),
-    address: new FormControl('',[Validators.required, Validators.minLength(1)])
-  })
+  form: FormGroup = {} as FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
@@ -30,6 +28,11 @@ export class MakeOrderComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      quantity: '',
+      city: '',
+      address: ''
+    })
   }
 
   submit() {
@@ -39,16 +42,20 @@ export class MakeOrderComponent implements OnInit {
       headers: { "Authorization": "Bearer " + this.authToken}
     }).subscribe({
       next: ()=>{
-        this.router.navigate(['/']); 
+        this.router.navigate(['/orders']); 
       },
-      error: (err => {
-        if(err.status === 400){
-          alert('Bad request');
+      error: (errorResponse) => {
+        if (errorResponse.status === 400){
+        this.errorMessage = errorResponse.error.message
+        alert(this.errorMessage)
         }
-        if(err.status === 405){
-          alert('The product is not available in such quantities');
+        if (errorResponse.status === 403){
+          alert("The product is not available in such quantities")
         }
-      })
+        if (errorResponse.status === 200){
+        this.router.navigate(['/orders']); 
+        }
+      }
     });
   })
 }

@@ -10,6 +10,7 @@ import {AuthorizationService} from "../services/authorization.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  errorMessage: string = '';
   loginForm: FormGroup = {} as FormGroup;
 
   constructor(
@@ -28,17 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    this.auth.login(this.loginForm.getRawValue()).subscribe({
-      next: (data) => {
+    this.auth.login(this.loginForm.getRawValue()).subscribe((data) => {
         this.cookie.setCookie('access_token', data['access_token'],60);
         this.cookie.setCookie('user', JSON.stringify(data['user']), 60);
         this.router.navigate(['/']);
       },
-      error: (err => {
-        if(err.status === 400){
-          alert('Wrong password or email');
+      (error) => {
+        if (error.status === 400){
+        alert("Wrong password or email")
         }
-      })
-    });
+      }
+    );
   }
 }

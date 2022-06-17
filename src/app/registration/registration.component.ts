@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {CookieService} from "../services/cookie.service";
 import {Router} from "@angular/router";
 import {AuthorizationService} from "../services/authorization.service";
@@ -10,17 +10,12 @@ import {AuthorizationService} from "../services/authorization.service";
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-
-    form = new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
-    first_name:new FormControl('',[Validators.required]),
-    last_name:new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    confirm_password:new FormControl('',[Validators.required])
-  })
+  errorMessage: string = '';
+  form: FormGroup = {} as FormGroup;
   passwords_not_match= false
 
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
     private cookie: CookieService,
     private auth: AuthorizationService
@@ -28,6 +23,13 @@ export class RegistrationComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      email: '',
+      first_name: '',
+      last_name: '',
+      password: '',
+      confirm_password: ''
+    })
   }
 
   submit() {
@@ -42,16 +44,18 @@ export class RegistrationComponent implements OnInit {
     
     this.auth.registration(data).subscribe((data) => {
     this.cookie.setCookie('access_token', data['access_token'], 60);
-    this.cookie.setCookie('self', JSON.stringify(data['user']), 60);
+    this.cookie.setCookie('user', JSON.stringify(data['user']), 60);
     this.router.navigate(['/']);
-      }, (error) => {
+      }, 
+      (error) => {
           if (error.status === 403) {
-            alert('User with this email or username already registered');
+            alert('User with this email already registered');
           }
           if (error.status === 400) {
             alert('Wrong data');
           }
       }
+      
     )
   }
 }

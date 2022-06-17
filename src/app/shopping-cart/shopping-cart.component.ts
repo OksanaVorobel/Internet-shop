@@ -1,20 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
 import {CookieService} from "../services/cookie.service";
 import {Product} from "../services/product"
 
-
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-shopping-cart',
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit {
   API: string = 'http://127.0.0.1:5000';
-  authenticated: boolean = false;
   private authToken: string = '';
-  errorMessage: string = '';
 
   product_for_display!: Product;
 
@@ -29,15 +25,11 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
     private cookie: CookieService
   ) { }
 
-  isLoggedIn() {
-    return !(this.cookie.getAuthToken() === "");
-  }
-
   ngOnInit(): void {
+    this.authToken = this.cookie.getAuthToken();
     this.http.get<[{
       id: number,
       name: string,
@@ -46,7 +38,9 @@ export class ProductsComponent implements OnInit {
       price: string,
       img: string
     }]>
-    (this.API + "/products").subscribe({
+    (this.API + "/shopping/cart/products", {
+      headers: { "Authorization": "Bearer " + this.authToken}
+    }).subscribe({
       next: (data) => {
         data.forEach((product_for_display)=>{
           this.products.push(product_for_display);
@@ -55,16 +49,22 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  add_product(product_id: number): void{ 
+  delete_product(product_id: number): void{ 
     this.authToken = this.cookie.getAuthToken();
-    this.http.post(this.API + `/products/${product_id}/shopping/cart`, {}, {
+    this.http.delete(this.API + `/shopping/cart/products/${product_id}`, {
       headers: { "Authorization": "Bearer " + this.authToken}
-    }).subscribe(() => {
-    },
-    (error) => {
-      if (error.status === 403) {
-        alert('Product already in your shopping cart');
-      }
-  })
+    }).subscribe((data) => {
+      location.reload();
+        }, 
+        (error) => {
+            if (error.status === 400) {
+              alert('Something wrong');
+            }
+            if (error.status === 200) {  
+            location.reload();
+            }
+        }
+        
+      );
   }
 }

@@ -8,6 +8,7 @@ import {ProfileComponent } from "./profile/profile.component";
 import {ProductsComponent } from './products/products.component';
 import {OrdersComponent } from './orders/orders.component';
 import {MakeOrderComponent } from './make-order/make-order.component';
+import {ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'orders', component: OrdersComponent},
-  {path: 'make-order/:product_id', component: MakeOrderComponent}
+  {path: 'make-order/:product_id', component: MakeOrderComponent},
+  {path: 'shopping-cart', component: ShoppingCartComponent}
 ];
 
 @NgModule({

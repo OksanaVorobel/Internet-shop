@@ -8,7 +8,10 @@
         <p class="product-price">{{product.price}} UAN</p>
         <p class="product-title">category: {{product.category}}</p>
         <p class="product-title">quantity: {{product.quantity}}</p>
-        <button class="button-item" routerLinkActive="active" routerLink="/make-order/{{product.id}}">Buy</button>
+        <button  *ngIf="isLoggedIn()" class="button-item" routerLinkActive="active" routerLink="/make-order/{{product.id}}">Buy</button>
+        <button *ngIf="isLoggedIn()" class="button-item" (click) = "add_product(product.id)">Add to Bag</button>
+        <button  *ngIf="!isLoggedIn()" class="button-item" routerLinkActive="active" routerLink="/login">Buy</button>
+        <button *ngIf="!isLoggedIn()" class="button-item" routerLinkActive="active" routerLink="/login">Add to Bag</button>
       </div>
     </div>
   </div>
